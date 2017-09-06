@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+       {% block content %}
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated == False %}
+    <meta http-equiv="REFRESH" content="3;url={% url 'login' %}">
+{% endif %}
+
+        {% endblock %}

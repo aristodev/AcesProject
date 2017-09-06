@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+       {% block content %}
+{% load crispy_forms_tags %}
+
+
+{% if user.is_authenticated %}
+    <meta http-equiv="REFRESH" content="0;url={% url 'home' %}">
+{% endif %}
+
+
+{% if user.is_authenticated == False %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    {{form|crispy}}
+    <input type="submit" value="Login" class="btn btn-success">
+</form>
+<br>
+
+{% endif %}
+        {% endblock %}
