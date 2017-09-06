@@ -23,8 +23,8 @@ from members.views import Register,Home
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/', Register, name='register'),
-    url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
+    url(r'^logout/', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^home/', Home, name='home'),
-    url(r'^', Home, name='home'),
+    url(r'^$', Home, name='home'),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
